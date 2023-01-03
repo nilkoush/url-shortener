@@ -9,7 +9,7 @@ import { IoCopyOutline, IoOpenOutline } from 'react-icons/io5';
 import * as yup from 'yup';
 
 const validationSchema = yup.object().shape({
-	url: yup
+	longUrl: yup
 		.string()
 		.matches(
 			/(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
