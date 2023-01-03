@@ -23,11 +23,14 @@ export default function HomePage() {
 	const [shortUrl, setShortUrl] = useState<string>('');
 	const [copied, setCopied] = useState(false);
 
-	const submitForm = async (data: { url: string }, resetForm: () => void) => {
-		setLongUrl(data.url);
+	const submitForm = async (
+		data: { longUrl: string },
+		resetForm: () => void
+	) => {
+		setLongUrl(data.longUrl);
 		await axios
 			.post('/api/create', {
-				url: data.url,
+				longUrl: data.longUrl,
 			})
 			.then((res) => {
 				setShortUrl(`https://us.nilkoush.dev/${res.data.shortUrl}`);
@@ -66,7 +69,7 @@ export default function HomePage() {
 					</h1>
 					{!shortUrl ? (
 						<Formik
-							initialValues={{ url: '' }}
+							initialValues={{ longUrl: '' }}
 							onSubmit={(data, { setSubmitting, resetForm }) => {
 								setSubmitting(true);
 								submitForm(data, resetForm);
@@ -80,7 +83,7 @@ export default function HomePage() {
 								>
 									<Field
 										label="Long URL"
-										name="url"
+										name="longUrl"
 										type="text"
 										placeholder="Enter the long url here"
 										component={TextFormField}

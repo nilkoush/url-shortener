@@ -3,9 +3,9 @@ import { GetServerSideProps } from 'next';
 import type { FC, ReactNode } from 'react';
 
 export const getServerSideProps: GetServerSideProps = async (context: any) => {
-	const shortened = context.params.url;
+	const shortUrl = context.params.url;
 
-	let response = await redis.hget('links', shortened);
+	let response = await redis.hget('links', shortUrl);
 
 	if (!response || response == null) {
 		return {
