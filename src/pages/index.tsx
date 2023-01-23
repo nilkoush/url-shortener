@@ -12,7 +12,7 @@ const validationSchema = yup.object().shape({
 	longUrl: yup
 		.string()
 		.matches(
-			/(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
+			/^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/gm,
 			'Long URL field must be a valid URL!'
 		)
 		.required(`Long URL field mustn't be empty!`),
