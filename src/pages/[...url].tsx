@@ -10,7 +10,7 @@ export const getServerSideProps: GetServerSideProps = async (context: any) => {
 	if (!response || response == null) {
 		return {
 			redirect: {
-				destination: 'https://us.nilkoush.dev',
+				destination: process.env.NEXT_PUBLIC_SHORT_URL as string,
 				permanent: true,
 			},
 		};

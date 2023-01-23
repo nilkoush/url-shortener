@@ -33,7 +33,9 @@ export default function HomePage() {
 				longUrl: data.longUrl,
 			})
 			.then((res) => {
-				setShortUrl(`https://us.nilkoush.dev/${res.data.shortUrl}`);
+				setShortUrl(
+					`${process.env.NEXT_PUBLIC_SHORT_URL}/${res.data.shortUrl}`
+				);
 			})
 			.catch((res) => {
 				console.log(res);
