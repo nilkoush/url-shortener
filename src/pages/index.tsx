@@ -165,8 +165,10 @@ export default function HomePage() {
 								<p className="text-[#A1A0AB]">
 									Long URL:{' '}
 									<a
-										className="font-medium text-white hover:underline"
+										className="break-words font-medium text-white hover:underline"
 										href={longUrl}
+										target="_blank"
+										rel="noreferrer"
 									>
 										{longUrl}
 									</a>
